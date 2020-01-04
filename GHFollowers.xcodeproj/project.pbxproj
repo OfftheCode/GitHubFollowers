@@ -19,6 +19,7 @@
 		8A6CEA9323C0EEA200F7FEFB /* FollowersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA9223C0EEA200F7FEFB /* FollowersListVC.swift */; };
 		8A6CEA9523C0F31600F7FEFB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA9423C0F31600F7FEFB /* String+Extensions.swift */; };
 		8A6CEA9723C11C6700F7FEFB /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA9623C11C6700F7FEFB /* GFTitleLabel.swift */; };
+		8A6CEA9923C11DF300F7FEFB /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA9823C11DF300F7FEFB /* GFBodyLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8A6CEA9223C0EEA200F7FEFB /* FollowersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVC.swift; sourceTree = "<group>"; };
 		8A6CEA9423C0F31600F7FEFB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		8A6CEA9623C11C6700F7FEFB /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
+		8A6CEA9823C11DF300F7FEFB /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				8A6CEA8423BFE8D500F7FEFB /* Info.plist */,
 				8A6CEA8A23BFEFCA00F7FEFB /* SearchVC.swift */,
 				8A6CEA9623C11C6700F7FEFB /* GFTitleLabel.swift */,
+				8A6CEA9823C11DF300F7FEFB /* GFBodyLabel.swift */,
 				8A6CEA9423C0F31600F7FEFB /* String+Extensions.swift */,
 				8A6CEA8C23BFEFEC00F7FEFB /* FavouritesListVC.swift */,
 				8A6CEA8E23BFF81400F7FEFB /* GFButton.swift */,
@@ -165,6 +168,7 @@
 				8A6CEA9723C11C6700F7FEFB /* GFTitleLabel.swift in Sources */,
 				8A6CEA8D23BFEFEC00F7FEFB /* FavouritesListVC.swift in Sources */,
 				8A6CEA7923BFE8D200F7FEFB /* SceneDelegate.swift in Sources */,
+				8A6CEA9923C11DF300F7FEFB /* GFBodyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
