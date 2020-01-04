@@ -13,9 +13,11 @@
 		8A6CEA8023BFE8D500F7FEFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A6CEA7F23BFE8D500F7FEFB /* Assets.xcassets */; };
 		8A6CEA8323BFE8D500F7FEFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6CEA8123BFE8D500F7FEFB /* LaunchScreen.storyboard */; };
 		8A6CEA8B23BFEFCA00F7FEFB /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA8A23BFEFCA00F7FEFB /* SearchVC.swift */; };
-		8A6CEA8D23BFEFEC00F7FEFB /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA8C23BFEFEC00F7FEFB /* FavouritesVC.swift */; };
+		8A6CEA8D23BFEFEC00F7FEFB /* FavouritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA8C23BFEFEC00F7FEFB /* FavouritesListVC.swift */; };
 		8A6CEA8F23BFF81400F7FEFB /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA8E23BFF81400F7FEFB /* GFButton.swift */; };
 		8A6CEA9123BFFA3700F7FEFB /* GFtextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA9023BFFA3700F7FEFB /* GFtextField.swift */; };
+		8A6CEA9323C0EEA200F7FEFB /* FollowersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA9223C0EEA200F7FEFB /* FollowersListVC.swift */; };
+		8A6CEA9523C0F31600F7FEFB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA9423C0F31600F7FEFB /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +29,11 @@
 		8A6CEA8223BFE8D500F7FEFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A6CEA8423BFE8D500F7FEFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A6CEA8A23BFEFCA00F7FEFB /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		8A6CEA8C23BFEFEC00F7FEFB /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
+		8A6CEA8C23BFEFEC00F7FEFB /* FavouritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesListVC.swift; sourceTree = "<group>"; };
 		8A6CEA8E23BFF81400F7FEFB /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		8A6CEA9023BFFA3700F7FEFB /* GFtextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFtextField.swift; sourceTree = "<group>"; };
+		8A6CEA9223C0EEA200F7FEFB /* FollowersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVC.swift; sourceTree = "<group>"; };
+		8A6CEA9423C0F31600F7FEFB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,9 +73,11 @@
 				8A6CEA8123BFE8D500F7FEFB /* LaunchScreen.storyboard */,
 				8A6CEA8423BFE8D500F7FEFB /* Info.plist */,
 				8A6CEA8A23BFEFCA00F7FEFB /* SearchVC.swift */,
-				8A6CEA8C23BFEFEC00F7FEFB /* FavouritesVC.swift */,
+				8A6CEA9423C0F31600F7FEFB /* String+Extensions.swift */,
+				8A6CEA8C23BFEFEC00F7FEFB /* FavouritesListVC.swift */,
 				8A6CEA8E23BFF81400F7FEFB /* GFButton.swift */,
 				8A6CEA9023BFFA3700F7FEFB /* GFtextField.swift */,
+				8A6CEA9223C0EEA200F7FEFB /* FollowersListVC.swift */,
 			);
 			path = GHFollowers;
 			sourceTree = "<group>";
@@ -148,10 +154,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A6CEA9123BFFA3700F7FEFB /* GFtextField.swift in Sources */,
+				8A6CEA9323C0EEA200F7FEFB /* FollowersListVC.swift in Sources */,
 				8A6CEA8B23BFEFCA00F7FEFB /* SearchVC.swift in Sources */,
 				8A6CEA8F23BFF81400F7FEFB /* GFButton.swift in Sources */,
+				8A6CEA9523C0F31600F7FEFB /* String+Extensions.swift in Sources */,
 				8A6CEA7723BFE8D200F7FEFB /* AppDelegate.swift in Sources */,
-				8A6CEA8D23BFEFEC00F7FEFB /* FavouritesVC.swift in Sources */,
+				8A6CEA8D23BFEFEC00F7FEFB /* FavouritesListVC.swift in Sources */,
 				8A6CEA7923BFE8D200F7FEFB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

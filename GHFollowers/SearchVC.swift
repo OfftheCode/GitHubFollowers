@@ -16,6 +16,12 @@ class SearchVC: UIViewController {
     let searchTF        = GFTextField()
     let searchButton    = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     
+    // MARK: - Properties
+    
+    var isUsernameEntered: Bool {
+        return !searchTF.text!.isEmpty
+    }
+    
     // MARK: - View Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +65,7 @@ class SearchVC: UIViewController {
     
     private func configureSearchButton() {
         view.addSubview(searchButton)
+        searchButton.addTarget(self, action: #selector(pushFollowersVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             searchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
@@ -73,13 +80,19 @@ class SearchVC: UIViewController {
         view.addGestureRecognizer(tapGesutre)
     }
     
+    @objc func pushFollowersVC() {
+        guard isUsernameEntered else { return }
+        let followersListVC = FollowersListVC()
+        followersListVC.username = searchTF.text
+        navigationController?.pushViewController(followersListVC, animated: true)
+    }
+    
 }
 
 extension SearchVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("Returned")
-        
+        pushFollowersVC()
         return true
     }
     
