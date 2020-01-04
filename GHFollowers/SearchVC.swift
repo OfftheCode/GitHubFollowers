@@ -81,7 +81,10 @@ class SearchVC: UIViewController {
     }
     
     @objc func pushFollowersVC() {
-        guard isUsernameEntered else { return }
+        guard isUsernameEntered else {
+            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😀.", buttonTitle: "OK")
+            return
+        }
         let followersListVC = FollowersListVC()
         followersListVC.username = searchTF.text
         navigationController?.pushViewController(followersListVC, animated: true)
