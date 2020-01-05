@@ -17,28 +17,28 @@ class NetworkManager {
     
     private init() {}
     
-    func getFollowers(for username: String, page: Int, completed: @escaping ([Follower]?, String?) -> Void) {
+    func getFollowers(for username: String, page: Int, completed: @escaping(Result<[Follower], GFError>) -> Void) {
         
         let endpoint = baseURL + "\(username)/followers?per_page=\(perPageFollowers)&page=\(page)"
         
         guard let url = URL(string: endpoint) else {
-            completed(nil, "Invalid request for username \(username)")
+            completed(.failure(.invalidUsername))
             return
         }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
-                completed(nil, "Unable to complete your request. Please check your internet connection")
+                completed(.failure(.noInternetConnection))
                 return
             }
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(nil, "Invalid response from the server. Please try again.")
+                completed(.failure(.invalidResponse))
                 return
             }
             
             guard let data = data else {
-                completed(nil, "No data avilable for the user \(username)")
+                completed(.failure(.noData))
                 return
             }
             
@@ -46,9 +46,9 @@ class NetworkManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let followers = try decoder.decode([Follower].self, from: data)
-                completed(followers, nil)
+                completed(.success(followers))
             } catch {
-                completed(nil, "Invalid data recived from server")
+                completed(.failure(.invalidData))
             }
             
         }

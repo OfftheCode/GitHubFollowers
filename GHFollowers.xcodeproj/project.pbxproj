@@ -25,6 +25,7 @@
 		8A6CEAA423C224EC00F7FEFB /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEAA323C224EC00F7FEFB /* Follower.swift */; };
 		8A6CEAA623C225C900F7FEFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEAA523C225C900F7FEFB /* User.swift */; };
 		8A6CEAA923C22C9A00F7FEFB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEAA823C22C9A00F7FEFB /* NetworkManager.swift */; };
+		8A6CEAAC23C24EBC00F7FEFB /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEAAB23C24EBC00F7FEFB /* GFError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		8A6CEAA323C224EC00F7FEFB /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		8A6CEAA523C225C900F7FEFB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8A6CEAA823C22C9A00F7FEFB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8A6CEAAB23C24EBC00F7FEFB /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		8A6CEA6A23BFE8D200F7FEFB = {
 			isa = PBXGroup;
 			children = (
+				8A6CEAAA23C24EA800F7FEFB /* Utilities */,
 				8A6CEAA723C22C8D00F7FEFB /* Managers */,
 				8A6CEAA223C224DD00F7FEFB /* Model */,
 				8A6CEA7523BFE8D200F7FEFB /* GHFollowers */,
@@ -151,6 +154,14 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		8A6CEAAA23C24EA800F7FEFB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8A6CEAAB23C24EBC00F7FEFB /* GFError.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,6 +245,7 @@
 				8A6CEA7723BFE8D200F7FEFB /* AppDelegate.swift in Sources */,
 				8A6CEA9723C11C6700F7FEFB /* GFTitleLabel.swift in Sources */,
 				8A6CEA8D23BFEFEC00F7FEFB /* FavouritesListVC.swift in Sources */,
+				8A6CEAAC23C24EBC00F7FEFB /* GFError.swift in Sources */,
 				8A6CEAA923C22C9A00F7FEFB /* NetworkManager.swift in Sources */,
 				8A6CEA7923BFE8D200F7FEFB /* SceneDelegate.swift in Sources */,
 				8A6CEA9923C11DF300F7FEFB /* GFBodyLabel.swift in Sources */,
