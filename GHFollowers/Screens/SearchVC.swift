@@ -26,7 +26,7 @@ class SearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewDidLoad() {
@@ -87,9 +87,16 @@ class SearchVC: UIViewController {
         }
         let followersListVC = FollowersListVC()
         followersListVC.username = searchTF.text
+
         navigationController?.pushViewController(followersListVC, animated: true)
+        cleanControllerState()
     }
     
+    
+    private func cleanControllerState() {
+        view.endEditing(true)
+        searchTF.text = ""
+    }
 }
 
 extension SearchVC: UITextFieldDelegate {
