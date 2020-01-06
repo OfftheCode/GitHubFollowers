@@ -15,6 +15,7 @@ class FollowersListVC: UIViewController {
             configure(with: newValue)
         }
     }
+    var collectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,9 +24,28 @@ class FollowersListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViewController()
+        configureCollectionView()
+        getFollowers()
+    }
+
+    private func configure(with username: String) {
+        title = username
+    }
+    
+    private func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+    }
+    
+    private func configureCollectionView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = .systemPink
+        collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
+    }
+    
+    private func getFollowers() {
         NetworkManager.shared.getFollowers(for: username, page: 1) { [unowned self] result in
             
             switch result {
@@ -35,11 +55,6 @@ class FollowersListVC: UIViewController {
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
             }
         }
-    }
-
-    private func configure(with username: String) {
-        title = username
-        // further configuration ...
     }
     
 }
