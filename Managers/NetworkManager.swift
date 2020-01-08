@@ -6,7 +6,7 @@
 //  Copyright © 2020 Piotr Szadkowski. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     
@@ -14,6 +14,8 @@ class NetworkManager {
     
     private let baseURL = "https://api.github.com/users/"
     private let perPageFollowers = 100
+    
+    let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     

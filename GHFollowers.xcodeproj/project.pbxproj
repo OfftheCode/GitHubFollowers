@@ -28,6 +28,7 @@
 		8A6CEAAC23C24EBC00F7FEFB /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEAAB23C24EBC00F7FEFB /* GFError.swift */; };
 		8A6CEAAF23C2628D00F7FEFB /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEAAE23C2628D00F7FEFB /* FollowerCell.swift */; };
 		8A6CEAB123C2630900F7FEFB /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEAB023C2630900F7FEFB /* GFAvatarImageView.swift */; };
+		8A6CEAB623C609A200F7FEFB /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEAB523C609A200F7FEFB /* UIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		8A6CEAAB23C24EBC00F7FEFB /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 		8A6CEAAE23C2628D00F7FEFB /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		8A6CEAB023C2630900F7FEFB /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
+		8A6CEAB523C609A200F7FEFB /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				8A6CEAAB23C24EBC00F7FEFB /* GFError.swift */,
+				8A6CEAB523C609A200F7FEFB /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				8A6CEA9723C11C6700F7FEFB /* GFTitleLabel.swift in Sources */,
 				8A6CEA8D23BFEFEC00F7FEFB /* FavouritesListVC.swift in Sources */,
 				8A6CEAAC23C24EBC00F7FEFB /* GFError.swift in Sources */,
+				8A6CEAB623C609A200F7FEFB /* UIHelper.swift in Sources */,
 				8A6CEAA923C22C9A00F7FEFB /* NetworkManager.swift in Sources */,
 				8A6CEA7923BFE8D200F7FEFB /* SceneDelegate.swift in Sources */,
 				8A6CEA9923C11DF300F7FEFB /* GFBodyLabel.swift in Sources */,
