@@ -53,14 +53,15 @@ class FollowersListVC: UIViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
         collectionView.delegate = self
-        collectionView.backgroundColor = .systemPink
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
     private func getFollowers(page: Int) {
+        showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else { return }
-            
+            self.hideLoadingView()
             switch result {
             case .success(let followers):
                 if followers.count < 100 { self.hasMoreFollowers = false }
