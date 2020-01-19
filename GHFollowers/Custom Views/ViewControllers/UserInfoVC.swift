@@ -11,10 +11,12 @@ import UIKit
 class UserInfoVC: UIViewController {
     
     var follower: Follower
+    var user: User?
     
     init(with follower: Follower) {
         self.follower = follower
         super.init(nibName: nil, bundle: nil)
+        fetchUser()
     }
     
     required init?(coder: NSCoder) {
@@ -35,6 +37,20 @@ class UserInfoVC: UIViewController {
     
     @objc private func dismissVC() {
         dismiss(animated: true)
+    }
+
+    
+    private func fetchUser() {
+        NetworkManager.shared.getUserInfo(with: follower.login) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let user):
+                print(user)
+                self.user = user
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
+            }
+        }
     }
     
 }
