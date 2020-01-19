@@ -20,6 +20,8 @@ class FollowersListVC: UIViewController {
         }
     }
     
+    var isSearching: Bool { !filteredFollowers.isEmpty }
+    
     var followers: [Follower] = []
     var filteredFollowers: [Follower] = []
     
@@ -124,6 +126,16 @@ extension FollowersListVC: UICollectionViewDelegate {
             page += 1
             getFollowers(page: page)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentFollowers = isSearching ? filteredFollowers : followers
+        let selectedFollower = currentFollowers[indexPath.item]
+        
+        let userInfoVC = UserInfoVC(with: selectedFollower)
+        let userNavigationController = UINavigationController(rootViewController: userInfoVC)
+        
+        present(userNavigationController, animated: true)
     }
     
 }

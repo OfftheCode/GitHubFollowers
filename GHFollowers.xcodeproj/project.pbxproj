@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A4D246823D4C5510078F8EF /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D246723D4C5510078F8EF /* UserInfoVC.swift */; };
 		8A6CEA7723BFE8D200F7FEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA7623BFE8D200F7FEFB /* AppDelegate.swift */; };
 		8A6CEA7923BFE8D200F7FEFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CEA7823BFE8D200F7FEFB /* SceneDelegate.swift */; };
 		8A6CEA7E23BFE8D200F7FEFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6CEA7C23BFE8D200F7FEFB /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A4D246723D4C5510078F8EF /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		8A6CEA7323BFE8D200F7FEFB /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6CEA7623BFE8D200F7FEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A6CEA7823BFE8D200F7FEFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				8A6CEA9A23C11F1800F7FEFB /* GFAlertVC.swift */,
+				8A4D246723D4C5510078F8EF /* UserInfoVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				8A6CEAAF23C2628D00F7FEFB /* FollowerCell.swift in Sources */,
 				8A6CEAB123C2630900F7FEFB /* GFAvatarImageView.swift in Sources */,
 				8A6CEA9B23C11F1800F7FEFB /* GFAlertVC.swift in Sources */,
+				8A4D246823D4C5510078F8EF /* UserInfoVC.swift in Sources */,
 				8A6CEAA423C224EC00F7FEFB /* Follower.swift in Sources */,
 				8A6CEA7723BFE8D200F7FEFB /* AppDelegate.swift in Sources */,
 				8A6CEA9723C11C6700F7FEFB /* GFTitleLabel.swift in Sources */,
