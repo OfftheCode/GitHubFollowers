@@ -21,6 +21,7 @@ class FollowersListVC: UIViewController {
     }
     
     var followers: [Follower] = []
+    var filteredFollowers: [Follower] = []
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -35,6 +36,7 @@ class FollowersListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        configureSearchController()
         configureCollectionView()
         configureDataSource()
         getFollowers(page: 1)
@@ -47,6 +49,16 @@ class FollowersListVC: UIViewController {
     private func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func configureSearchController() {
+        let searchVC = UISearchController()
+        searchVC.searchResultsUpdater = self
+        searchVC.searchBar.placeholder = "nickname"
+        searchVC.obscuresBackgroundDuringPresentation = false
+        searchVC.searchBar.delegate = self
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchVC
     }
     
     private func configureCollectionView() {
@@ -74,7 +86,7 @@ class FollowersListVC: UIViewController {
                     return
                 }
                 
-                self.updateData()
+                self.updateData(for: self.followers)
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
             }
@@ -89,7 +101,7 @@ class FollowersListVC: UIViewController {
         })
     }
     
-    private func updateData() {
+    private func updateData(for followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers, toSection: .main)
@@ -114,4 +126,24 @@ extension FollowersListVC: UICollectionViewDelegate {
         }
     }
     
+}
+
+
+extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            updateData(for: followers)
+            return
+        }
+        
+        filteredFollowers = followers.filter { follower in
+            follower.login.contains(filter)
+        }
+        
+        updateData(for: filteredFollowers)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(for: followers)
+    }
 }
