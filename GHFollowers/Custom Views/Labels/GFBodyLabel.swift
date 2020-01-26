@@ -31,6 +31,7 @@ class GFBodyLabel: UILabel {
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.75
         lineBreakMode = .byWordWrapping
+        numberOfLines = 0
         translatesAutoresizingMaskIntoConstraints = false
     }
     
