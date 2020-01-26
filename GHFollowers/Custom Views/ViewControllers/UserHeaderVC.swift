@@ -62,7 +62,7 @@ class UserHeaderVC: UIViewController {
         
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: bigPadding),
-            avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: bigPadding),
+            avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             avatarImageView.heightAnchor.constraint(equalToConstant: 90),
             avatarImageView.widthAnchor.constraint(equalToConstant: 90),
             
@@ -82,7 +82,7 @@ class UserHeaderVC: UIViewController {
             
             bioBodyLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: bigPadding),
             bioBodyLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
-            bioBodyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -bigPadding),
+            bioBodyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bioBodyLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }

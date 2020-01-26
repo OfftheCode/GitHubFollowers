@@ -18,13 +18,14 @@ class UserInfoVC: UIViewController {
     // MARK: - Subviews
     
     let headerView = UIView()
+    let firstInfoView = UIView()
+    let secondInfoView = UIView()
     
     // MARK: - Lifecycle
     
     init(with follower: Follower) {
         self.follower = follower
         super.init(nibName: nil, bundle: nil)
-        fetchUser()
     }
     
     required init?(coder: NSCoder) {
@@ -36,6 +37,7 @@ class UserInfoVC: UIViewController {
         view.backgroundColor = .systemBackground
         setupLayout()
         configureNavigation()
+        fetchUser()
     }
     
     private func configureNavigation() {
@@ -65,14 +67,21 @@ class UserInfoVC: UIViewController {
     }
     
     private func setupLayout() {
-        view.addSubview(headerView)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let padding: CGFloat = 28
+        
+        view.addAndStretch(with: padding, headerView, firstInfoView, secondInfoView)
+        
+        firstInfoView.backgroundColor = .systemBlue
+        secondInfoView.backgroundColor = .systemPink
         
         NSLayoutConstraint.activate([
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35)
+            headerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            firstInfoView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
+            firstInfoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.22),
+            secondInfoView.topAnchor.constraint(equalTo: firstInfoView.bottomAnchor, constant: padding),
+            secondInfoView.heightAnchor.constraint(equalTo: firstInfoView.heightAnchor, multiplier: 1.0)
         ])
     }
     
@@ -80,7 +89,7 @@ class UserInfoVC: UIViewController {
         let userVC = UserHeaderVC(user: user)
         addChild(userVC)
         userVC.view.frame = headerView.bounds
-        view.addSubview(userVC.view)
+        headerView.addSubview(userVC.view)
         userVC.didMove(toParent: self)
     }
     
