@@ -19,6 +19,7 @@ class GFItemInfoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureViews()
+        layoutUI()
     }
     
     convenience init(itemInfoStyle: ItemInfoStyle, count: Int) {
@@ -31,7 +32,11 @@ class GFItemInfoView: UIView {
         iconView.contentMode = .scaleAspectFill
     }
     
-    override func layoutSubviews() {
+    required init?(coder: NSCoder) {
+        fatalError("Not implemented!")
+    }
+    
+    private func layoutUI() {
         addSubviews(iconView, titleLabel, countLabel)
         
         NSLayoutConstraint.activate([
@@ -47,10 +52,6 @@ class GFItemInfoView: UIView {
             countLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             countLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 6)
         ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("Not implemented!")
     }
     
     func setInfoStyle(_ item: ItemInfoStyle, count: Int) {
