@@ -37,6 +37,7 @@
 		8AF361E423DCFDF400915CE5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF361E323DCFDF400915CE5 /* UIView+Extension.swift */; };
 		8AF361E623DD007800915CE5 /* SFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF361E523DD007800915CE5 /* SFSymbol.swift */; };
 		8AF361E823DD01A800915CE5 /* UserHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF361E723DD01A800915CE5 /* UserHeaderVC.swift */; };
+		8AF62A2123E6064300748528 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF62A2023E6064300748528 /* GFItemInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		8AF361E323DCFDF400915CE5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		8AF361E523DD007800915CE5 /* SFSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbol.swift; sourceTree = "<group>"; };
 		8AF361E723DD01A800915CE5 /* UserHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderVC.swift; sourceTree = "<group>"; };
+		8AF62A2023E6064300748528 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				8A6CEAC323CBC5E200F7FEFB /* EmptyStateView.swift */,
+				8AF62A2023E6064300748528 /* GFItemInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			files = (
 				8A6CEA9D23C124F700F7FEFB /* UIViewController+Extension.swift in Sources */,
 				8A6CEA9123BFFA3700F7FEFB /* GFtextField.swift in Sources */,
+				8AF62A2123E6064300748528 /* GFItemInfoView.swift in Sources */,
 				8A6CEAC423CBC5E200F7FEFB /* EmptyStateView.swift in Sources */,
 				8A6CEA9323C0EEA200F7FEFB /* FollowersListVC.swift in Sources */,
 				8A6CEA8B23BFEFCA00F7FEFB /* SearchVC.swift in Sources */,
