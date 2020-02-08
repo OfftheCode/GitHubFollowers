@@ -17,9 +17,9 @@ class UserInfoVC: UIViewController {
     
     // MARK: - Subviews
     
-    let headerView = UIView()
-    let firstInfoView = UIView()
-    let secondInfoView = UIView()
+    @Constrainted var headerView = UIView()
+    @Constrainted var firstInfoView = UIView()
+    @Constrainted var secondInfoView = UIView()
     
     // MARK: - Lifecycle
     
@@ -58,7 +58,7 @@ class UserInfoVC: UIViewController {
             case .success(let user):
                 self.user = user
                 DispatchQueue.main.async {
-                    self.addUserVC(with: user)
+                    self.addUserInfoControllers(withUser: user)
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
@@ -69,28 +69,32 @@ class UserInfoVC: UIViewController {
     private func setupLayout() {
         
         let padding: CGFloat = 28
-        
-        view.addAndStretch(with: padding, headerView, firstInfoView, secondInfoView)
-        
-        firstInfoView.backgroundColor = .systemBlue
-        secondInfoView.backgroundColor = .systemPink
+        view.addSubview(headerView)
+        view.addAndStretch(with: padding, firstInfoView, secondInfoView)
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            headerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
+            headerView.leadingAnchor.constraint(equalTo: firstInfoView.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             firstInfoView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
-            firstInfoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.22),
+            firstInfoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
             secondInfoView.topAnchor.constraint(equalTo: firstInfoView.bottomAnchor, constant: padding),
             secondInfoView.heightAnchor.constraint(equalTo: firstInfoView.heightAnchor, multiplier: 1.0)
         ])
     }
     
-    private func addUserVC(with user: User) {
-        let userVC = UserHeaderVC(user: user)
-        addChild(userVC)
-        userVC.view.frame = headerView.bounds
-        headerView.addSubview(userVC.view)
-        userVC.didMove(toParent: self)
+    private func addUserInfoControllers(withUser user: User) {
+        add(viewController: UserHeaderVC(user: user), toView: view)
+        add(viewController: GFRepoItemVC(with: user), toView: firstInfoView)
+        add(viewController: GFFollowersItemVC(with: user), toView: secondInfoView)
+    }
+    
+    private func add(viewController vc: UIViewController, toView view: UIView) {
+        addChild(vc)
+        vc.view.frame = view.bounds
+        view.addSubview(vc.view)
+        vc.didMove(toParent: self)
     }
     
 }

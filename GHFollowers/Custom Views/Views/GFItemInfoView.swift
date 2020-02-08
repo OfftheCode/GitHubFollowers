@@ -40,17 +40,17 @@ class GFItemInfoView: UIView {
         addSubviews(iconView, titleLabel, countLabel)
         
         NSLayoutConstraint.activate([
-            iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 17),
-            iconView.topAnchor.constraint(equalTo: topAnchor, constant: 23),
+            iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            iconView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             iconView.heightAnchor.constraint(equalToConstant: 24),
             iconView.widthAnchor.constraint(equalToConstant: 24),
             
             titleLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: 5),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: iconView.centerYAnchor),
             
             countLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            countLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            countLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 6)
+            countLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8)
         ])
     }
     

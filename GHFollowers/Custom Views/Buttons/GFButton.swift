@@ -26,6 +26,15 @@ class GFButton: UIButton {
         configure()
     }
     
+    // MARK: - Interface
+    
+    func set(backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        setTitle(title, for: .normal)
+    }
+    
+    // MARK: - Private
+    
     private func configure() {
         layer.cornerRadius = 10
         setTitleColor(.white, for: .normal)
