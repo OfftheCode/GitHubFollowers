@@ -63,8 +63,8 @@ class UserHeaderVC: UIViewController {
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: bigPadding),
             avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigPadding),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 90),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 90),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
             
             usernameTitleLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
             usernameTitleLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: mediumPadding),
@@ -73,7 +73,7 @@ class UserHeaderVC: UIViewController {
             nameSubtitleLabel.leadingAnchor.constraint(equalTo: usernameTitleLabel.leadingAnchor),
             
             locationImageView.leadingAnchor.constraint(equalTo: nameSubtitleLabel.leadingAnchor),
-            locationImageView.centerYAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
+            locationImageView.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
             locationImageView.heightAnchor.constraint(equalToConstant: 24),
             locationImageView.widthAnchor.constraint(equalToConstant: 24),
             
@@ -82,8 +82,7 @@ class UserHeaderVC: UIViewController {
             
             bioBodyLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: bigPadding),
             bioBodyLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
-            bioBodyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bioBodyLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            bioBodyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
@@ -92,7 +91,7 @@ class UserHeaderVC: UIViewController {
         usernameTitleLabel.text = user.login
         nameSubtitleLabel.text = user.name
         locationSubtitleLabel.text = user.location ?? "Unknow"
-        bioBodyLabel.text = user.bio
+        bioBodyLabel.text = user.bio ?? "No bio avilable."
     }
     
 }
