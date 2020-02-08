@@ -20,6 +20,7 @@ class UserInfoVC: UIViewController {
     @Constrainted var headerView = UIView()
     @Constrainted var firstInfoView = UIView()
     @Constrainted var secondInfoView = UIView()
+    @Constrainted var dateLabel = GFBodyLabel(textAlignment: .center)
     
     // MARK: - Lifecycle
     
@@ -59,6 +60,7 @@ class UserInfoVC: UIViewController {
                 self.user = user
                 DispatchQueue.main.async {
                     self.addUserInfoControllers(withUser: user)
+                    self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormat())"
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
@@ -70,7 +72,7 @@ class UserInfoVC: UIViewController {
         
         let padding: CGFloat = 28
         view.addSubview(headerView)
-        view.addAndStretch(with: padding, firstInfoView, secondInfoView)
+        view.addAndStretch(with: padding, firstInfoView, secondInfoView, dateLabel)
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -80,7 +82,8 @@ class UserInfoVC: UIViewController {
             firstInfoView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
             firstInfoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
             secondInfoView.topAnchor.constraint(equalTo: firstInfoView.bottomAnchor, constant: padding),
-            secondInfoView.heightAnchor.constraint(equalTo: firstInfoView.heightAnchor, multiplier: 1.0)
+            secondInfoView.heightAnchor.constraint(equalTo: firstInfoView.heightAnchor, multiplier: 1.0),
+            dateLabel.topAnchor.constraint(equalTo: secondInfoView.bottomAnchor, constant: padding),
         ])
     }
     
