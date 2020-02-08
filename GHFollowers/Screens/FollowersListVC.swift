@@ -64,11 +64,18 @@ class FollowersListVC: UIViewController {
     }
     
     private func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
     
     private func getFollowers(page: Int) {
@@ -133,6 +140,7 @@ extension FollowersListVC: UICollectionViewDelegate {
         let selectedFollower = currentFollowers[indexPath.item]
         
         let userInfoVC = UserInfoVC(with: selectedFollower)
+        userInfoVC.delegate = self
         let userNavigationController = UINavigationController(rootViewController: userInfoVC)
         
         present(userNavigationController, animated: true)
@@ -158,4 +166,17 @@ extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         updateData(for: followers)
     }
+}
+
+extension FollowersListVC: UserInfoDelegate {
+    
+    func showFollowers(for username: String) {
+        self.username = username
+        page = 1
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        collectionView.setContentOffset(.zero, animated: true)
+        getFollowers(page: page)
+    }
+    
 }

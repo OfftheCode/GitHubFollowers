@@ -47,7 +47,14 @@ class GFInfoItemVC: UIViewController {
         configureBackgroundView()
         configureStackView()
         layoutUI()
+        configureButton()
     }
+    
+    private func configureButton() {
+        actionButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
+    
+    @objc func buttonTapped() { }
     
     private func configureBackgroundView() {
         view.backgroundColor = .secondarySystemBackground

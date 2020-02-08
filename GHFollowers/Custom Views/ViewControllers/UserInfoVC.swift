@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol UserInfoDelegate: class {
+    func showFollowers(for username: String)
+}
+
 class UserInfoVC: UIViewController {
     
     // MARK: - Properties
     
     var follower: Follower
     var user: User?
+    weak var delegate: UserInfoDelegate?
     
     // MARK: - Subviews
     
@@ -50,7 +55,6 @@ class UserInfoVC: UIViewController {
     @objc private func dismissVC() {
         dismiss(animated: true)
     }
-
     
     private func fetchUser() {
         NetworkManager.shared.getUserInfo(with: follower.login) { [weak self] result in
@@ -88,9 +92,9 @@ class UserInfoVC: UIViewController {
     }
     
     private func addUserInfoControllers(withUser user: User) {
-        add(viewController: UserHeaderVC(user: user), toView: view)
-        add(viewController: GFRepoItemVC(with: user), toView: firstInfoView)
-        add(viewController: GFFollowersItemVC(with: user), toView: secondInfoView)
+        add(viewController: UserHeaderVC(user: user), toView: headerView)
+        add(viewController: GFRepoItemVC(with: user, delegate: self), toView: firstInfoView)
+        add(viewController: GFFollowersItemVC(with: user, delegate: self), toView: secondInfoView)
     }
     
     private func add(viewController vc: UIViewController, toView view: UIView) {
@@ -100,4 +104,26 @@ class UserInfoVC: UIViewController {
         vc.didMove(toParent: self)
     }
     
+}
+
+extension UserInfoVC: ProfileTappable {
+    func tappedProfileButton(with user: User) {
+        guard let url = URL(string: user.htmlUrl) else {
+            presentGFAlertOnMainThread(title: "Error", message: "user url couldn't be loaded", buttonTitle: "OK")
+            return
+        }
+        showSafariVC(for: url)
+    }
+}
+
+extension UserInfoVC: FollowersTappable {
+    func getFollowers(for user: User) {
+        guard user.followers != 0 else {
+            presentGFAlertOnMainThread(title: "No followers", message: "This user doesn't have any followers 😞.", buttonTitle: "OK")
+            return
+        }
+        
+        delegate?.showFollowers(for: user.login)
+        dismissVC()
+    }
 }
