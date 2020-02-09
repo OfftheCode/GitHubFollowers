@@ -68,9 +68,9 @@ class FollowersListVC: UIViewController {
                 PersistanceManager.updateFavourites(with: follower, actionType: .save) { error in
                     
                     if let error = error {
-                        self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
+                        self.presentGFAlertOnMainThread(title: "Already Favourited", message: error.rawValue, buttonTitle: "OK", style: .info)
                     } else {
-                        self.presentGFAlertOnMainThread(title: "Cool", message: "Bro", buttonTitle: "ZIom")
+                        self.presentGFAlertOnMainThread(title: "Success!", message: "You have successfully favourited this user 🎉", buttonTitle: "Hooray", style: .success)
                     }
                 }
                 

@@ -10,18 +10,35 @@ import UIKit
 
 class GFAlertVC: UIViewController {
     
-   private let containerView = UIView()
-   private let titleLabel = GFTitleLabel(textAlignment: .center, fontSize: 20)
-   private let messageLabel = GFBodyLabel(textAlignment: .center)
-   private let actionButton = GFButton(backgroundColor: .systemPink, title: "OK")
+    enum Style {
+        case error, info, success
+        
+        var color: UIColor {
+            switch self {
+            case .error:
+                return .systemPink
+            case .info:
+                return .systemBlue
+            case .success:
+                return .systemGreen
+            }
+        }
+    }
     
-   private var alertTitle: String?
-   private var message: String?
-   private var buttonTitle: String?
+    private let containerView = UIView()
+    private let titleLabel = GFTitleLabel(textAlignment: .center, fontSize: 20)
+    private let messageLabel = GFBodyLabel(textAlignment: .center)
+    private lazy var actionButton = GFButton(backgroundColor: self.style.color, title: "OK")
+    
+    private var alertTitle: String?
+    private var message: String?
+    private var buttonTitle: String?
+    private let style: Style
     
     private let padding: CGFloat = 20
     
-    init(title: String, message: String, buttonTitle: String) {
+    init(title: String, message: String, buttonTitle: String, style: Style = .error) {
+        self.style = style
         super.init(nibName: nil, bundle: nil)
         self.alertTitle = title
         self.message = message
