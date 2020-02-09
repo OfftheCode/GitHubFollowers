@@ -12,3 +12,12 @@ struct Follower: Codable, Hashable {
     var login: String
     var avatarUrl: String
 }
+
+extension Follower {
+    
+    init(from user: User) {
+        self.login = user.login
+        self.avatarUrl = user.avatarUrl
+    }
+    
+}

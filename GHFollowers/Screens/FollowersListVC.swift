@@ -57,7 +57,25 @@ class FollowersListVC: UIViewController {
     }
     
     @objc private func addToFavourites() {
-        
+        NetworkManager.shared.getUserInfo(with: username) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
+            case .success(let user):
+                let follower = Follower(from: user)
+                PersistanceManager.updateFavourites(with: follower, actionType: .save) { error in
+                    
+                    if let error = error {
+                        self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
+                    } else {
+                        self.presentGFAlertOnMainThread(title: "Cool", message: "Bro", buttonTitle: "ZIom")
+                    }
+                }
+                
+            }
+        }
     }
     
     private func configureSearchController() {
