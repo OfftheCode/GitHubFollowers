@@ -62,12 +62,13 @@ class UserHeaderVC: UIViewController {
         
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: bigPadding),
-            avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: bigPadding),
+            avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             avatarImageView.heightAnchor.constraint(equalToConstant: 100),
             avatarImageView.widthAnchor.constraint(equalToConstant: 100),
             
             usernameTitleLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
             usernameTitleLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: mediumPadding),
+            usernameTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: mediumPadding),
             
             nameSubtitleLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor, constant: nameFontSize / 2.0),
             nameSubtitleLabel.leadingAnchor.constraint(equalTo: usernameTitleLabel.leadingAnchor),
