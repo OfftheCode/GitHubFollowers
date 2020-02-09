@@ -14,4 +14,11 @@ enum GFError: String, Error {
     case invalidResponse = "Invalid response from the server. Please try again."
     case noData = "No data avilable for the user"
     case invalidData = "Invalid data recived from server"
+    
+    // MARK: - Favourites
+    
+    case couldntReadFavourites = "Couldn't find your favourites"
+    case couldntParseFollower = "Couldn't save that follower"
+    case followerAlreadyFavourited = "You've already favourited this user"
+    
 }
