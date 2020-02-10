@@ -15,6 +15,8 @@ class FavouritesListVC: UIViewController {
     var favourites = [Follower]() {
         didSet {
             tableView.reloadData()
+            view.bringSubviewToFront(tableView)
+            tableView.isHidden = false
         }
     }
     
@@ -65,12 +67,17 @@ class FavouritesListVC: UIViewController {
                 self.showEmptyStateView(with: "Couldn't fetch favourites", in: self.view)
             case .success(let favourites):
                 guard !favourites.isEmpty else {
-                    self.showEmptyStateView(with: "You don't have any favourites yet, go and favourite them!", in: self.view)
+                    self.showEmptyState()
                     return
                 }
                 self.favourites = favourites
             }
         }
+    }
+    
+    fileprivate func showEmptyState() {
+        showEmptyStateView(with: "You don't have any favourites yet, go and favourite them!", in: self.view)
+        tableView.isHidden = true
     }
     
 }
@@ -91,6 +98,18 @@ extension FavouritesListVC: UITableViewDataSource, UITableViewDelegate {
         let followersVC = FollowersListVC()
         followersVC.username = favourite.login
         navigationController?.pushViewController(followersVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        let removedFollower = favourites.remove(at: indexPath.row)
+        
+        if favourites.isEmpty { showEmptyState() }
+        
+        PersistanceManager.updateFavourites(with: removedFollower, actionType: .remove) { [weak self] error in
+            guard let self = self, let error = error else { return }
+            self.presentGFAlertOnMainThread(title: "Error while removing", message: error.rawValue, buttonTitle: "OK")
+        }
     }
     
 }
