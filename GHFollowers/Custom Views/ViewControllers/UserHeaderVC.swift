@@ -88,7 +88,10 @@ class UserHeaderVC: UIViewController {
     }
     
     private func setupData() {
-        avatarImageView.downloadImage(from: user.avatarUrl)
+        NetworkManager.shared.downloadImage(for: user.avatarUrl) { [weak self] image in
+            guard let self = self else { return }
+            DispatchQueue.main.async { self.avatarImageView.image = image }
+        }
         usernameTitleLabel.text = user.login
         nameSubtitleLabel.text = user.name
         locationSubtitleLabel.text = user.location ?? "Unknow"
