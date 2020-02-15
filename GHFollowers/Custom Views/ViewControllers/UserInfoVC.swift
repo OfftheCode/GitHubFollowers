@@ -64,7 +64,7 @@ class UserInfoVC: UIViewController {
                 self.user = user
                 DispatchQueue.main.async {
                     self.addUserInfoControllers(withUser: user)
-                    self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormat())"
+                    self.dateLabel.text = "GitHub since \(user.createdAt.convertToMonthAndYear())"
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
