@@ -64,4 +64,6 @@ extension UIViewController {
         view.addSubview(emptyStateView)
     }
     
+    var is4Inch: Bool { UIDevice.current.is4Inch }
+    
 }
