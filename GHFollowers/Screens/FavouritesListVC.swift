@@ -8,7 +8,8 @@
 
 import UIKit
 
-class FavouritesListVC: UIViewController {
+class FavouritesListVC: UIViewController, Loadable {
+    var containerView: UIView!
     
     // MARK: - Properties
     

@@ -28,42 +28,6 @@ extension UIViewController {
         present(safariVC, animated: true)
     }
     
-    func showLoadingView() {
-        
-        containerView = UIView(frame: view.bounds)
-        containerView.backgroundColor = .systemBackground
-        containerView.alpha = 0.0
-        view.addSubview(containerView)
-        
-        UIView.animate(withDuration: 0.25) {
-            containerView.alpha = 0.8
-        }
-        
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        containerView.addSubview(activityIndicator)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-        
-        activityIndicator.startAnimating()
-    }
-    
-    func hideLoadingView() {
-        DispatchQueue.main.async {
-            containerView.removeFromSuperview()
-            containerView = nil
-        }
-    }
-    
-    func showEmptyStateView(with message: String, in view: UIView) {
-        let emptyStateView = EmptyStateView(with: message)
-        emptyStateView.frame = view.bounds
-        view.addSubview(emptyStateView)
-    }
-    
     var is4Inch: Bool { UIDevice.current.is4Inch }
     
 }

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class FollowersListVC: UIViewController {
+class FollowersListVC: UIViewController, Loadable {
+    var containerView: UIView!
  
     enum Section {
         case main
