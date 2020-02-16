@@ -47,6 +47,7 @@ class FavouritesListVC: UIViewController, Loadable {
         tableView.dataSource = self
         tableView.register(FavouriteCell.self, forCellReuseIdentifier: FavouriteCell.reuseID)
         tableView.rowHeight = 80
+        tableView.removeExcessCells()
     }
     
     private func setupLayout() {

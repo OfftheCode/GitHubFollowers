@@ -32,6 +32,8 @@ final class EmptyStateView: UIView {
         addSubview(messageLabel)
         addSubview(logoImageView)
         
+        backgroundColor = .systemBackground
+        
         messageLabel.textColor = .secondaryLabel
         messageLabel.numberOfLines = 3
         
