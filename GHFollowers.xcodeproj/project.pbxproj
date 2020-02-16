@@ -37,6 +37,7 @@
 		8A9F81A023F8BC2E00D07F18 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F819F23F8BC2E00D07F18 /* Loadable.swift */; };
 		8A9F81A223F976A600D07F18 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81A123F976A600D07F18 /* UITableView+Ext.swift */; };
 		8A9F81A423F979A100D07F18 /* Collection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81A323F979A100D07F18 /* Collection+Ext.swift */; };
+		8A9F81AC23F99EEC00D07F18 /* GHFollowersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81AB23F99EEC00D07F18 /* GHFollowersTests.swift */; };
 		8AA7736123EEEE6F00F80642 /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7736023EEEE6F00F80642 /* GFRepoItemVC.swift */; };
 		8AA7736323EEEF8F00F80642 /* GFFollowersItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7736223EEEF8F00F80642 /* GFFollowersItemVC.swift */; };
 		8AA7736523EEFB7800F80642 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7736423EEFB7800F80642 /* String+Ext.swift */; };
@@ -52,6 +53,16 @@
 		8AF62A2123E6064300748528 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF62A2023E6064300748528 /* GFItemInfoView.swift */; };
 		8AF62A2323E63AFE00748528 /* GFInfoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF62A2223E63AFE00748528 /* GFInfoItemVC.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A9F81AE23F99EEC00D07F18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A6CEA6B23BFE8D200F7FEFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A6CEA7223BFE8D200F7FEFB;
+			remoteInfo = GHFollowers;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8A4D246723D4C5510078F8EF /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
@@ -86,6 +97,9 @@
 		8A9F819F23F8BC2E00D07F18 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		8A9F81A123F976A600D07F18 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		8A9F81A323F979A100D07F18 /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
+		8A9F81A923F99EEB00D07F18 /* GHFollowersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHFollowersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A9F81AB23F99EEC00D07F18 /* GHFollowersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFollowersTests.swift; sourceTree = "<group>"; };
+		8A9F81AD23F99EEC00D07F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AA7736023EEEE6F00F80642 /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
 		8AA7736223EEEF8F00F80642 /* GFFollowersItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowersItemVC.swift; sourceTree = "<group>"; };
 		8AA7736423EEFB7800F80642 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -110,6 +124,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8A9F81A623F99EEB00D07F18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -120,6 +141,7 @@
 				8A6CEAA723C22C8D00F7FEFB /* Managers */,
 				8A6CEAA223C224DD00F7FEFB /* Model */,
 				8A6CEA7523BFE8D200F7FEFB /* GHFollowers */,
+				8A9F81AA23F99EEC00D07F18 /* GHFollowersTests */,
 				8A6CEA7423BFE8D200F7FEFB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				8A6CEA7323BFE8D200F7FEFB /* GHFollowers.app */,
+				8A9F81A923F99EEB00D07F18 /* GHFollowersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -299,6 +322,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		8A9F81AA23F99EEC00D07F18 /* GHFollowersTests */ = {
+			isa = PBXGroup;
+			children = (
+				8A9F81AB23F99EEC00D07F18 /* GHFollowersTests.swift */,
+				8A9F81AD23F99EEC00D07F18 /* Info.plist */,
+			);
+			path = GHFollowersTests;
+			sourceTree = "<group>";
+		};
 		8AA7735F23EEEE5200F80642 /* GFInfoVCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +361,24 @@
 			productReference = 8A6CEA7323BFE8D200F7FEFB /* GHFollowers.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8A9F81A823F99EEB00D07F18 /* GHFollowersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A9F81B023F99EEC00D07F18 /* Build configuration list for PBXNativeTarget "GHFollowersTests" */;
+			buildPhases = (
+				8A9F81A523F99EEB00D07F18 /* Sources */,
+				8A9F81A623F99EEB00D07F18 /* Frameworks */,
+				8A9F81A723F99EEB00D07F18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A9F81AF23F99EEC00D07F18 /* PBXTargetDependency */,
+			);
+			name = GHFollowersTests;
+			productName = GHFollowersTests;
+			productReference = 8A9F81A923F99EEB00D07F18 /* GHFollowersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -341,6 +391,10 @@
 				TargetAttributes = {
 					8A6CEA7223BFE8D200F7FEFB = {
 						CreatedOnToolsVersion = 11.2;
+					};
+					8A9F81A823F99EEB00D07F18 = {
+						CreatedOnToolsVersion = 11.2;
+						TestTargetID = 8A6CEA7223BFE8D200F7FEFB;
 					};
 				};
 			};
@@ -358,6 +412,7 @@
 			projectRoot = "";
 			targets = (
 				8A6CEA7223BFE8D200F7FEFB /* GHFollowers */,
+				8A9F81A823F99EEB00D07F18 /* GHFollowersTests */,
 			);
 		};
 /* End PBXProject section */
@@ -370,6 +425,13 @@
 				8A6CEA8323BFE8D500F7FEFB /* LaunchScreen.storyboard in Resources */,
 				8A6CEA8023BFE8D500F7FEFB /* Assets.xcassets in Resources */,
 				8A6CEA7E23BFE8D200F7FEFB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A9F81A723F99EEB00D07F18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +486,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8A9F81A523F99EEB00D07F18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A9F81AC23F99EEC00D07F18 /* GHFollowersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8A9F81AF23F99EEC00D07F18 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A6CEA7223BFE8D200F7FEFB /* GHFollowers */;
+			targetProxy = 8A9F81AE23F99EEC00D07F18 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8A6CEA7C23BFE8D200F7FEFB /* Main.storyboard */ = {
@@ -596,6 +674,46 @@
 			};
 			name = Release;
 		};
+		8A9F81B123F99EEC00D07F18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3L3PA22CNL;
+				INFOPLIST_FILE = GHFollowersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.infullmobile.GHFollowersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GHFollowers.app/GHFollowers";
+			};
+			name = Debug;
+		};
+		8A9F81B223F99EEC00D07F18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3L3PA22CNL;
+				INFOPLIST_FILE = GHFollowersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.infullmobile.GHFollowersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GHFollowers.app/GHFollowers";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -613,6 +731,15 @@
 			buildConfigurations = (
 				8A6CEA8823BFE8D500F7FEFB /* Debug */,
 				8A6CEA8923BFE8D500F7FEFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A9F81B023F99EEC00D07F18 /* Build configuration list for PBXNativeTarget "GHFollowersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A9F81B123F99EEC00D07F18 /* Debug */,
+				8A9F81B223F99EEC00D07F18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
