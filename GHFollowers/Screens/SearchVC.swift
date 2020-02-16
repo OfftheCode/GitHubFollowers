@@ -57,6 +57,8 @@ class SearchVC: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    // MARK: - Layout Configuration
+    
     @objc private func handleKeyboard(_ notification: NSNotification) {
         guard is4Inch else { return }
         if notification.name == UIResponder.keyboardWillShowNotification {
@@ -109,6 +111,8 @@ class SearchVC: UIViewController {
         let tapGesutre = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesutre)
     }
+    
+    // MARK: - Business Logic
     
     @objc func pushFollowersVC() {
         guard isUsernameEntered else {
