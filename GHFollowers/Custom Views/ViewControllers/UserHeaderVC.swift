@@ -83,7 +83,8 @@ class UserHeaderVC: UIViewController {
             
             bioBodyLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: bigPadding),
             bioBodyLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
-            bioBodyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            bioBodyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bioBodyLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -96,6 +97,7 @@ class UserHeaderVC: UIViewController {
         nameSubtitleLabel.text = user.name
         locationSubtitleLabel.text = user.location ?? "Unknow"
         bioBodyLabel.text = user.bio ?? "No bio avilable."
+        bioBodyLabel.numberOfLines = 3
     }
     
 }
