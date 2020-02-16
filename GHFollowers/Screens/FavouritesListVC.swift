@@ -13,12 +13,7 @@ class FavouritesListVC: UIViewController, Loadable {
     
     // MARK: - Properties
     
-    var favourites = [Follower]() {
-        didSet {
-            view.bringSubviewToFront(tableView)
-            tableView.isHidden = false
-        }
-    }
+    var favourites = [Follower]()
     
     // MARK: - Subviews
     
@@ -34,7 +29,6 @@ class FavouritesListVC: UIViewController, Loadable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getFavourites()
-        tableView.reloadData()
     }
     
     private func configureVC() {
@@ -69,13 +63,24 @@ class FavouritesListVC: UIViewController, Loadable {
                 self.presentGFAlertOnMainThread(title: "Couldn't fetch favourites", message: error.rawValue, buttonTitle: "OK")
                 self.showEmptyStateView(with: "Couldn't fetch favourites", in: self.view)
             case .success(let favourites):
-                guard !favourites.isEmpty else {
-                    self.showEmptyState()
-                    return
-                }
-                self.favourites = favourites
+                self.updateUI(with: favourites)
             }
         }
+    }
+    
+    private func updateUI(with favourites: [Follower]) {
+        guard !favourites.isEmpty else {
+            self.showEmptyState()
+            return
+        }
+        self.favourites = favourites
+        DispatchQueue.main.async {
+            self.removeEmptyStateView()
+            self.tableView.reloadData()
+            self.view.bringSubviewToFront(self.tableView)
+            self.tableView.isHidden = false
+        }
+        
     }
     
     fileprivate func showEmptyState() {

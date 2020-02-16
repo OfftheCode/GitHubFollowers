@@ -13,6 +13,7 @@ protocol Loadable: class {
     func showLoadingView()
     func hideLoadingView()
     func showEmptyStateView(with message: String, in view: UIView)
+    func removeEmptyStateView()
 }
 
 extension Loadable where Self: UIViewController {
@@ -51,6 +52,14 @@ extension Loadable where Self: UIViewController {
         let emptyStateView = EmptyStateView(with: message)
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
+    }
+    
+    func removeEmptyStateView() {
+        let emptyStateView = view.subviews.first { (view) -> Bool in
+            view is EmptyStateView
+        }
+        
+        emptyStateView?.removeFromSuperview()
     }
     
 }
