@@ -22,6 +22,8 @@ class UserInfoVC: UIViewController {
     
     // MARK: - Subviews
     
+    @Constrainted var scrollView = UIScrollView()
+    @Constrainted var contentView = UIView()
     @Constrainted var headerView = UIView()
     @Constrainted var firstInfoView = UIView()
     @Constrainted var secondInfoView = UIView()
@@ -41,6 +43,7 @@ class UserInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        setupScrollView()
         setupLayout()
         configureNavigation()
         fetchUser()
@@ -72,19 +75,35 @@ class UserInfoVC: UIViewController {
         }
     }
     
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubviews(contentView)
+        
+        scrollView.pinToEdges(of: view)
+        contentView.pinToEdges(of: scrollView)
+        
+        let contentHeightConstant: CGFloat = is4Inch ? 175 : 0
+        
+        NSLayoutConstraint.activate([
+            contentView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            contentView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: contentHeightConstant)
+        ])
+        
+    }
+    
     private func setupLayout() {
         
         let padding: CGFloat = 28
-        view.addSubview(headerView)
-        view.addAndStretch(with: padding, firstInfoView, secondInfoView, dateLabel)
+        contentView.addSubview(headerView)
+        contentView.addAndStretch(with: padding, firstInfoView, secondInfoView, dateLabel)
         
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.3),
             headerView.leadingAnchor.constraint(equalTo: firstInfoView.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             firstInfoView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
-            firstInfoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
+            firstInfoView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.2),
             secondInfoView.topAnchor.constraint(equalTo: firstInfoView.bottomAnchor, constant: padding),
             secondInfoView.heightAnchor.constraint(equalTo: firstInfoView.heightAnchor, multiplier: 1.0),
             dateLabel.topAnchor.constraint(equalTo: secondInfoView.bottomAnchor, constant: padding),
