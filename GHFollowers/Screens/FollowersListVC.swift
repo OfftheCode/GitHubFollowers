@@ -65,18 +65,22 @@ class FollowersListVC: UIViewController, Loadable {
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
             case .success(let user):
-                let follower = Follower(from: user)
-                PersistanceManager.updateFavourites(with: follower, actionType: .save) { error in
-                    
-                    if let error = error {
-                        self.presentGFAlertOnMainThread(title: "Already Favourited", message: error.rawValue, buttonTitle: "OK", style: .info)
-                    } else {
-                        self.presentGFAlertOnMainThread(title: "Success!", message: "You have successfully favourited this user 🎉", buttonTitle: "Hooray", style: .success)
-                    }
-                }
-                
+                self.addUserToFavourites(user)
             }
         }
+    }
+    
+    private func addUserToFavourites(_ user: User) {
+        let follower = Follower(from: user)
+        PersistanceManager.updateFavourites(with: follower, actionType: .save) { error in
+            
+            if let error = error {
+                self.presentGFAlertOnMainThread(title: "Already Favourited", message: error.rawValue, buttonTitle: "OK", style: .info)
+            } else {
+                self.presentGFAlertOnMainThread(title: "Success!", message: "You have successfully favourited this user 🎉", buttonTitle: "Hooray", style: .success)
+            }
+        }
+        
     }
     
     private func configureSearchController() {
