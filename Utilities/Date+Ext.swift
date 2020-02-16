@@ -16,4 +16,10 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    static var mockDate: Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter.date(from: "2020-02-16T16:15:35+0000")!
+    }
+    
 }
