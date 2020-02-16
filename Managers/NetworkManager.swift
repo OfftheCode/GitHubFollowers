@@ -8,16 +8,34 @@
 
 import UIKit
 
+protocol NetworkSession {
+    func loadData(from url: URL, completionHandler: @escaping(Data?, URLResponse?, Error?) -> Void)
+}
+
+extension URLSession: NetworkSession {
+    func loadData(from url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        let task = dataTask(with: url) { (data, response, error) in
+            completionHandler(data, response, error)
+        }
+        
+        task.resume()
+    }
+}
+
 class NetworkManager {
     
     static let shared = NetworkManager()
+    
+    private let session: NetworkSession
     
     private let baseURL = "https://api.github.com/users/"
     private let perPageFollowers = 100
     
     let cache = NSCache<NSString, UIImage>()
     
-    private init() {}
+    init(session: NetworkSession = URLSession.shared) {
+        self.session = session
+    }
     
     func getFollowers(for username: String, page: Int, completed: @escaping(Result<[Follower], GFError>) -> Void) {
         
@@ -28,7 +46,7 @@ class NetworkManager {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        session.loadData(from: url) { (data, response, error) in
             guard error == nil else {
                 completed(.failure(.noInternetConnection))
                 return
@@ -52,10 +70,7 @@ class NetworkManager {
             } catch {
                 completed(.failure(.invalidData))
             }
-            
         }
-        
-        task.resume()
         
     }
     
@@ -68,7 +83,7 @@ class NetworkManager {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        session.loadData(from: url) { data, response, error in
             guard error == nil else {
                 completed(.failure(.noInternetConnection))
                 return
@@ -93,11 +108,8 @@ class NetworkManager {
             } catch {
                 completed(.failure(.invalidData))
             }
-            
         }
-    
-        
-        task.resume()
+
     }
     
     func downloadImage(for urlString: String, completion: @escaping(UIImage?) -> Void) {
@@ -110,7 +122,7 @@ class NetworkManager {
         
         guard let url = URL(string: urlString) else { return }
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+        session.loadData(from: url) { [weak self] data, response, error in
             guard let self = self,
                 let response = response as? HTTPURLResponse, response.statusCode == 200,
                 let data = data,
@@ -121,8 +133,6 @@ class NetworkManager {
             self.cache.setObject(image, forKey: cacheKey)
             completion(image)
         }
-        
-        task.resume()
     }
     
 }
