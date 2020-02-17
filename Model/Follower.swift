@@ -20,4 +20,6 @@ extension Follower {
         self.avatarUrl = user.avatarUrl
     }
     
+    static let mock = Follower(login: "Johnatan", avatarUrl: "www.google.com/images/me.png")
+    
 }
