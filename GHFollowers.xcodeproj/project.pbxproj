@@ -334,8 +334,8 @@
 				8A9F81BB23F9BA1200D07F18 /* Utils */,
 				8A9F81B623F9ACFB00D07F18 /* Mocks */,
 				8A9F81B323F9A44300D07F18 /* Models */,
+				8A9F81BC23FB3F6100D07F18 /* Services */,
 				8A9F81AD23F99EEC00D07F18 /* Info.plist */,
-				8A9F81B723F9AD6E00D07F18 /* NetworkManagerTests.swift */,
 			);
 			path = GHFollowersTests;
 			sourceTree = "<group>";
@@ -362,6 +362,14 @@
 				8A9F81B923F9B9FC00D07F18 /* GFEncoder.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A9F81BC23FB3F6100D07F18 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8A9F81B723F9AD6E00D07F18 /* NetworkManagerTests.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		8AA7735F23EEEE5200F80642 /* GFInfoVCs */ = {

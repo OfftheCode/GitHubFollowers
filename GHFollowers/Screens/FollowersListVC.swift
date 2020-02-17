@@ -9,17 +9,24 @@
 import UIKit
 
 class FollowersListVC: UIViewController, Loadable {
+    
+    // MARK: - Views
+    
     var containerView: UIView!
  
     enum Section {
         case main
     }
     
+    // MARK: - Properties
+    
     var username: String! {
         willSet {
             configure(with: newValue)
         }
     }
+    
+    var networkManager: NetworkManager
     
     var isSearching: Bool { !filteredFollowers.isEmpty }
     
@@ -31,10 +38,18 @@ class FollowersListVC: UIViewController, Loadable {
     var page: Int = 1
     var hasMoreFollowers = true
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+    // MARK: - Init
+    
+    init(networkManager: NetworkManager = .shared) {
+        self.networkManager = networkManager
+        super.init(nibName: nil, bundle: nil)
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +58,11 @@ class FollowersListVC: UIViewController, Loadable {
         configureCollectionView()
         configureDataSource()
         getFollowers(page: 1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     private func configure(with username: String) {
@@ -58,7 +78,7 @@ class FollowersListVC: UIViewController, Loadable {
     }
     
     @objc private func addToFavourites() {
-        NetworkManager.shared.getUserInfo(with: username) { [weak self] result in
+        networkManager.getUserInfo(with: username) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -110,7 +130,7 @@ class FollowersListVC: UIViewController, Loadable {
     
     private func getFollowers(page: Int) {
         showLoadingView()
-        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
+        networkManager.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else { return }
             self.hideLoadingView()
             switch result {
