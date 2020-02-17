@@ -11,11 +11,18 @@ import Foundation
 
 enum GFEncoder {
     
-    static func enocde(user: User) -> Data? {
+    static func enocde(user: User) throws -> Data {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
         encoder.dateEncodingStrategy = .iso8601
-        return try? encoder.encode(user)
+        return try encoder.encode(user)
+    }
+    
+    static func enocde(followers: [Follower]) throws -> Data {
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        encoder.dateEncodingStrategy = .iso8601
+        return try encoder.encode(followers)
     }
     
 }

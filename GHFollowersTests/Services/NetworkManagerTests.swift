@@ -27,9 +27,9 @@ class NetworkManagerTests: XCTestCase {
         user = nil
     }
     
-    func testValidResponseProperEncoding() {
+    func testValidResponseProperEncoding() throws {
         // Given
-        session.data = GFEncoder.enocde(user: user)
+        session.data = try GFEncoder.enocde(user: user)
         
         // When
         var result: Result<User, GFError>?

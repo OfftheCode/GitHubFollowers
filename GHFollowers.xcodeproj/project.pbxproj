@@ -37,12 +37,13 @@
 		8A9F81A023F8BC2E00D07F18 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F819F23F8BC2E00D07F18 /* Loadable.swift */; };
 		8A9F81A223F976A600D07F18 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81A123F976A600D07F18 /* UITableView+Ext.swift */; };
 		8A9F81A423F979A100D07F18 /* Collection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81A323F979A100D07F18 /* Collection+Ext.swift */; };
-		8A9F81AC23F99EEC00D07F18 /* FollowerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81AB23F99EEC00D07F18 /* FollowerModelTests.swift */; };
+		8A9F81AC23F99EEC00D07F18 /* FollowerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81AB23F99EEC00D07F18 /* FollowerTests.swift */; };
 		8A9F81B523F9ACF700D07F18 /* NetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81B423F9ACF700D07F18 /* NetworkSessionMock.swift */; };
 		8A9F81B823F9AD6E00D07F18 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81B723F9AD6E00D07F18 /* NetworkManagerTests.swift */; };
 		8A9F81BF23FB3FB800D07F18 /* FollowersListVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81BE23FB3FB800D07F18 /* FollowersListVCTests.swift */; };
-		8A9F81C023FB457D00D07F18 /* GFEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81B923F9B9FC00D07F18 /* GFEncoder.swift */; };
 		8A9F81C323FB45FA00D07F18 /* GFDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81C123FB45C000D07F18 /* GFDecoder.swift */; };
+		8A9F81C523FB4B8000D07F18 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81C423FB4B8000D07F18 /* UserTests.swift */; };
+		8A9F81C723FB4C1E00D07F18 /* GFEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F81B923F9B9FC00D07F18 /* GFEncoder.swift */; };
 		8AA7736123EEEE6F00F80642 /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7736023EEEE6F00F80642 /* GFRepoItemVC.swift */; };
 		8AA7736323EEEF8F00F80642 /* GFFollowersItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7736223EEEF8F00F80642 /* GFFollowersItemVC.swift */; };
 		8AA7736523EEFB7800F80642 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7736423EEFB7800F80642 /* String+Ext.swift */; };
@@ -103,13 +104,14 @@
 		8A9F81A123F976A600D07F18 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		8A9F81A323F979A100D07F18 /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
 		8A9F81A923F99EEB00D07F18 /* GHFollowersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHFollowersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A9F81AB23F99EEC00D07F18 /* FollowerModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerModelTests.swift; sourceTree = "<group>"; };
+		8A9F81AB23F99EEC00D07F18 /* FollowerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTests.swift; sourceTree = "<group>"; };
 		8A9F81AD23F99EEC00D07F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A9F81B423F9ACF700D07F18 /* NetworkSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionMock.swift; sourceTree = "<group>"; };
 		8A9F81B723F9AD6E00D07F18 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		8A9F81B923F9B9FC00D07F18 /* GFEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEncoder.swift; sourceTree = "<group>"; };
 		8A9F81BE23FB3FB800D07F18 /* FollowersListVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVCTests.swift; sourceTree = "<group>"; };
 		8A9F81C123FB45C000D07F18 /* GFDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDecoder.swift; sourceTree = "<group>"; };
+		8A9F81C423FB4B8000D07F18 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		8AA7736023EEEE6F00F80642 /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
 		8AA7736223EEEF8F00F80642 /* GFFollowersItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowersItemVC.swift; sourceTree = "<group>"; };
 		8AA7736423EEFB7800F80642 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -349,7 +351,8 @@
 		8A9F81B323F9A44300D07F18 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8A9F81AB23F99EEC00D07F18 /* FollowerModelTests.swift */,
+				8A9F81AB23F99EEC00D07F18 /* FollowerTests.swift */,
+				8A9F81C423FB4B8000D07F18 /* UserTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -503,7 +506,6 @@
 				8A6CEA9123BFFA3700F7FEFB /* GFtextField.swift in Sources */,
 				8AF62A2123E6064300748528 /* GFItemInfoView.swift in Sources */,
 				8AA7736923F0A34A00F80642 /* PersistanceManager.swift in Sources */,
-				8A9F81C023FB457D00D07F18 /* GFEncoder.swift in Sources */,
 				8A6CEAC423CBC5E200F7FEFB /* EmptyStateView.swift in Sources */,
 				8A6CEA9323C0EEA200F7FEFB /* FollowersListVC.swift in Sources */,
 				8A6CEA8B23BFEFCA00F7FEFB /* SearchVC.swift in Sources */,
@@ -549,8 +551,10 @@
 			files = (
 				8A9F81B823F9AD6E00D07F18 /* NetworkManagerTests.swift in Sources */,
 				8A9F81BF23FB3FB800D07F18 /* FollowersListVCTests.swift in Sources */,
-				8A9F81AC23F99EEC00D07F18 /* FollowerModelTests.swift in Sources */,
+				8A9F81C523FB4B8000D07F18 /* UserTests.swift in Sources */,
+				8A9F81AC23F99EEC00D07F18 /* FollowerTests.swift in Sources */,
 				8A9F81B523F9ACF700D07F18 /* NetworkSessionMock.swift in Sources */,
+				8A9F81C723FB4C1E00D07F18 /* GFEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
